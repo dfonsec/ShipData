@@ -18,6 +18,17 @@ def deleteDuplicateRows(workbook):
     
     return workbook.save("/Users/danielfonseca/repos/ShipData/data/resultData.xlsx")
 
+def countUniqueRows(worksheet):
+    rows = worksheet.iter_rows(min_row=2)
+    seenIDS = set()
+
+    for row in rows:
+        if row[2].value not in seenIDS:
+            seenIDS.add(row[2].value)
+
+    return len(seenIDS)
+            
+
 
     
 
